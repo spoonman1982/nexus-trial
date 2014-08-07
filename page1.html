@@ -17,12 +17,66 @@
 	<div data-role="page" id="home" data-theme="a">
 		<div data-role="header" data-position="inline">
 
-			<h1>Page 1</h1><a href="index.html" data-icon="bars" data-iconpos="notext"></a>
+			<h1>Page 1</h1><a href="#myPanel_1" data-icon="bars" data-iconpos="notext"></a>
 		</div>
 		<div data-role="content" data-theme="a">
-			<h3>This is Page 1</h3>
+			<div style="text-align: center; margin-top: 100px; height: 120%">
+			    <img src="themes/images/logo.png"  align="center">
+			</div>
+		</div>
+		<div data-role="panel" id="myPanel_1" data-display="overlay" class="myPanel">
+			<ul data-role="listview">
+			 	<li><a href="#home">Page 1</a></li>
+			 	<li><a href="index.html">Index</a></li>
+			 	<li><a href="#settings">Settings</a></li>
+			 	<li><a href="#log_out">log Out</a></li>
+			 </ul>
 		</div>
 	</div>
+
+	
+
+	<div data-role="page" id="settings" data-theme="a">
+		<div data-role="header" data-position="inline">
+		<a href="#myPanel_5" data-icon="bars" data-iconpos="notext"></a>
+				<h1>Settings</h1>
+		<a href="#home" data-icon="home" data-iconpos="notext"></a>
+		</div>
+		<div data-role="content" data-theme="a">
+		<div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+		   <h3>This is the Settings Page</h3>
+		
+		</div>	
+
+		</div>
+		<div data-role="panel" id="myPanel_5" data-display="overlay" > 
+			<ul data-role="listview">
+			 	<li><a href="#home">Page 1</a></li>
+			 	<li><a href="index.html">Index</a></li>
+			 	<li><a href="#settings">Settings</a></li>
+			 	<li><a href="#log_out">log Out</a></li>
+			 </ul>
+		</div>
+	</div><!-- /end of page -->
+	<div data-role="page" id="log_out" data-theme="a">
+		<div data-role="header" data-position="inline">
+			<h1>Logout</h1><a href="#myPanel_6" data-icon="bars" data-iconpos="notext"></a>
+		</div>
+		<div data-role="content" data-theme="a">
+			
+			<a href="index.html" data-role="button" data-inline="true">Log Out</a>
+			<a href="index.html" data-role="button" data-inline="true" data-theme="a">Log In</a>
+
+		</div>
+		<div data-role="panel"  id="myPanel_6" data-display="overlay">
+			<ul data-role="listview">
+			 	<li><a href="home">Page 1</a></li>
+			 	<li><a href="index.html">Index</a></li>
+			 	<li><a href="#settings">Settings</a></li>
+			 	<li><a href="#log_out">log Out</a></li>
+			 </ul>
+		</div>
+	</div><!-- /end of page -->
 
 	
 </body>

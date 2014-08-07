@@ -1,0 +1,13 @@
+
+
+	.ui-panel {
+		-webkit-box-shadow: 5px 0 5px rgba(0,0,0,.15);
+		-moz-box-shadow: 5px 0 5px rgba(0,0,0,.15);
+		box-shadow: 5px 0 5px rgba(0,0,0,.15);
+		background-color: rgba(0,0,0,.85);
+		top: 44;
+	}
+	
+	#historyGraphBtn .ui-btn{
+		padding: .7em .8em;
+	}

@@ -18,201 +18,87 @@
 	</script>
 </head>
 <body>
-			<div data-role="page" id="index" data-theme="a">
-			
-			<div data-role="header" data-position="inline">
-				<a href="#myPanel_index" data-icon="bars" data-iconpos="notext"></a>
-					<h1>Register</h1>
-				<a href="index.html" data-icon="home" data-iconpos="notext"></a>
-			</div>
-			
-			<div data-role="content" data-theme="a">
+    <section id="page1" data-role="page">
+        <header data-role="header"><h1>jQuery Mobile</h1></header>
+        
+        <div data-role="content" class="content">
+            <p>First page!</p>
+        </div>
+        <footer data-role="footer"><h1>O'Reilly</h1></footer>
+    </section>
 
-				<form action="#" id="registration">
-					<div data-role="fieldcontain" >
-						    <label for="username">User Name</label>
-						    <input type="text" name="username" id="username" value="">
-					</div>
-					<div data-role="fieldcontain" >
-						    <label for="password">Password</label>
-						    <input type="password" name="password" id="password" value="">
-					</div>
-					<div data-role="fieldcontain" >
-							<input type="submit" value="submit">
-					</div>
-				</form>
-				
-			</div>
-			
-			<div data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>			
-						<li><a href="#" class="ui-btn-active  ui-state-persist">Register</a></li>
-						<li><a href="users.html" data-transition="slide" data-direction="reverse">User List</a></li>
-					</ul>
-				</div><!-- /navbar -->
-			</div><!-- /footer -->
-			
-			<div data-role="panel" id="myPanel_index" data-display="overlay" >
-				<ul data-role="listview">
-				 	<li><a href="energy_use.html">Polls</a></li>
-				 	<li><a href="history.html">History</a></li>
-				 	<li><a href="smart_home.html">Smart Home</a></li>
-				 	<li><a href="settings.html">Settings</a></li>
-				 	<li><a href="log_out.html">log Out</a></li>
-				 	<li><a href="#">Register</a></li>
-				 </ul>
-			</div>
-		<script>
-		
-	/*AJAX form submission*/
-		
-	$("#register").submit(function(event) {
+    <section id="page2" data-role="page">
+        <header data-role="header"><h1>jQuery Mobile</h1></header>
+        
+        <div data-role="content" class="content">
+            <p>Second page!</p>
+        </div>
+        <footer data-role="footer"r><h1>O'Reilly</h1></footer>
+    </section>
 
+    <section id="page3" data-role="page">
+        <header data-role="header"><h1>jQuery Mobile</h1></header>
+        
+        <div data-role="content" class="content">
+            <p>Third page!</p>
+        </div>
+        <footer data-role="footer"><h1>O'Reilly</h1></footer>
+    </section> 
+<script>
+	(function($) {
+    var methods = {
+        init : function(options) {
+            var settings = {
+                callback: function() {}
+            };
+        
+            if ( options ) {
+                $.extend( settings, options );
+                }
 
-				event.preventDefault();
+            $(":jqmData(role='page')").each(function() {
+                $(this).bind("swiperight", function() {
+                    var nextPage = parseInt($(this).attr("id").split("page")[1]) - 1;
+                    if (nextPage === 0) 
+                        nextPage = 3;
+                    
+                    $.mobile.changePage("#page"+nextPage, {
+                    		transition: "slide",
+                            reverse: false
+                        });
+                    });                        
 
-				var $form = $(this);
+                $(this).bind("swipeleft", function() {
+                    var nextPage = parseInt($(this).attr("id").split("page")[1]) +1;
+                    if (nextPage === 4) 
+                        nextPage = 1;
+                    
+                    $.mobile.changePage("#page"+nextPage, {
+                        transition: "slide",
+                        reverse: true
+                    });
+                });
+            });
+        }
+      };
 
-				var f_username = $form.find("input[name='username']").val();
-				var f_password = $form.find("input[name='password']").val();
+    $.fn.initApp = function(method) {
+        if ( methods[method] ) {
+            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } 
+        else if ( typeof method === 'object' || ! method ) {
+            return methods.init.apply( this, arguments );
+        } 
+        else {
+            $.error( 'Method ' + method + ' does not exist' );
+        }
+    };
+    })(jQuery);
 
-			
+$(document).ready(function(){
+    $().initApp();
+});
 
-				var f_data = JSON.stringify({
-					"username": f_username,
-					"password": f_password,
-				});
-
-				$.ajax({
-					 url: "http://localhost:8000/api/v1/register/",
-					 type: 'POST',
-					 contentType: 'application/json',
-					 data: f_data,
-					 dataType: 'json',
-					 processData: false,
-					 error: function(request, status, error){
-						alert(request);
-					 	},
-					});
-
-				$.mobile.changePage( "http://127.0.0.1:8020/nexus-mobile1.1/users.html", 
-				{ transition: "slideup", changeHash: false });
-
-			});
-			
-	/*Swipe Event*/
-	
-/*		$('#register').swipe({
-			swipe:function(event){
-				$.mobile.changePage('users.html', {
-					transition: 'slide',
-					reverse: true
-				});	 	
-			},
-		});*/
-	
-		$('#index').on('swipeleft swiperight', function (event) {
-			
-			 if(event.type == 'swiperight') {
-			 $.mobile.changePage('#users', {
-			   transition: 'slide',
-			   reverse: true
-			  });
-			 }
-			
-			 if(event.type == 'swipeleft') {
-			  $.mobile.changePage('#users', {
-			   transition: 'slide',
-			   reverse: false
-			  });
-			 }
-		});
-		
-		</script>
-
-	</div><!-- /end of page -->
-	
-	<div data-role="page" id="users" data-theme="a">
-			
-			<div data-role="header" data-position="inline">
-				<a href="#myPanel_users" data-icon="bars" data-iconpos="notext"></a>
-					<h1>User List</h1>
-				<a href="index.html" data-icon="home" data-iconpos="notext"></a>
-			</div>
-			
-			<div data-role="content" data-theme="a">
-
-				<ul data-role="listview" id="display_users">
-
-
-		    	</ul>
-				
-			</div>
-			
-			<div data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>			
-						<li><a href="#index" data-transition="slide" >Register</a></li>
-						<li><a href="#" class="ui-btn-active  ui-state-persist">User List</a></li>
-					</ul>
-				</div><!-- /navbar -->
-			</div><!-- /footer -->
-			
-			<div data-role="panel" id="myPanel_users" data-display="overlay" >
-				<ul data-role="listview">
-				 	<li><a href="energy_use.html">Polls</a></li>
-				 	<li><a href="history.html">History</a></li>
-				 	<li><a href="smart_home.html">Smart Home</a></li>
-				 	<li><a href="settings.html">Settings</a></li>
-				 	<li><a href="log_out.html">log Out</a></li>
-				 	<li><a href="#">Register</a></li>
-				 </ul>
-			</div>
-		<script>
-		$('#users').on('swipeleft swiperight', function (event) {
-			
-			 if(event.type == 'swiperight') {
-			 $.mobile.changePage('#index', {
-			   transition: 'slide',
-			   reverse: true
-			  });
-			 }
-			
-			 if(event.type == 'swipeleft') {
-			  $.mobile.changePage('#index', {
-			   transition: 'slide',
-			   reverse: false
-			  });
-			 }
-		});
-		
-	/*AJAX Get users*/
-		function list_users(){
-			$.ajax({
-					url:"http://localhost:8000/api/v1/userlist/",
-					type: 'GET',
-					contentType: 'application/json',
-					data: 'data',
-					dataType: 'json',
-					success: function(data) {
-								$.each(data.objects, function(key, value){
-								$("ul#display_users").append("<li class='ui-li-static ui-body-inherit'><h3>" + 
-								value.username + "</h3><p>" + value.password + "</p></li>");
-								});
-					}
-				});
-		}
-		
-		list_users();
-		
-		/* Swipe Event*/
-
-
-
-		</script>
-
-		</div><!-- /end of page -->
-
+</script>
 </body>
 </html>

@@ -18,10 +18,10 @@
 	</script>
 </head>
 <body>
-			<div data-role="page" id="register" data-theme="a">
+			<div data-role="page" id="index" data-theme="a">
 			
 			<div data-role="header" data-position="inline">
-				<a href="#myPanel_register" data-icon="bars" data-iconpos="notext"></a>
+				<a href="#myPanel_index" data-icon="bars" data-iconpos="notext"></a>
 					<h1>Register</h1>
 				<a href="index.html" data-icon="home" data-iconpos="notext"></a>
 			</div>
@@ -53,7 +53,7 @@
 				</div><!-- /navbar -->
 			</div><!-- /footer -->
 			
-			<div data-role="panel" id="myPanel_register" data-display="overlay" >
+			<div data-role="panel" id="myPanel_index" data-display="overlay" >
 				<ul data-role="listview">
 				 	<li><a href="energy_use.html">Polls</a></li>
 				 	<li><a href="history.html">History</a></li>
@@ -112,7 +112,7 @@
 			},
 		});*/
 	
-		$('#register').on('swipeleft swiperight', function (event) {
+		$('#index').on('swipeleft swiperight', function (event) {
 			
 			 if(event.type == 'swiperight') {
 			 $.mobile.changePage('#users', {
@@ -153,7 +153,7 @@
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
 					<ul>			
-						<li><a href="register.html" data-transition="slide" >Register</a></li>
+						<li><a href="#index" data-transition="slide" >Register</a></li>
 						<li><a href="#" class="ui-btn-active  ui-state-persist">User List</a></li>
 					</ul>
 				</div><!-- /navbar -->
@@ -173,14 +173,14 @@
 		$('#users').on('swipeleft swiperight', function (event) {
 			
 			 if(event.type == 'swiperight') {
-			 $.mobile.changePage('#register', {
+			 $.mobile.changePage('#index', {
 			   transition: 'slide',
 			   reverse: true
 			  });
 			 }
 			
 			 if(event.type == 'swipeleft') {
-			  $.mobile.changePage('#register', {
+			  $.mobile.changePage('#index', {
 			   transition: 'slide',
 			   reverse: false
 			  });

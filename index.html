@@ -2,7 +2,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Nexus Mobile</title>
+	<title>Nexus Mobile</title>http://127.0.0.1:8020/nexus-trial/themes/images/mock_nexus/history1.png
 	<link rel="stylesheet" href="themes/css/nexus1.1.css" />
   	<link rel="stylesheet" href="themes/css/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.css" />
@@ -10,7 +10,7 @@
 	<script src="themes/jquery-1.11.1.js"></script>
 	<script src="themes/jquery.mobile-1.4.3.js"></script>
 	<script src="themes/jquery.backstretch.min.js"></script>
-
+	<script src="themes/swipe-page.js"></script>
 	<script>
 		$(function(){
 			$.backstretch("themes/images/bg2.png");
@@ -18,87 +18,57 @@
 	</script>
 </head>
 <body>
-    <section id="page1" data-role="page">
-        <header data-role="header"><h1>jQuery Mobile</h1></header>
-        
-        <div data-role="content" class="content">
-            <p>First page!</p>
-        </div>
-        <footer data-role="footer"><h1>O'Reilly</h1></footer>
-    </section>
+	<div data-role="page" id="home" data-theme="a">
+		<div data-role="header" data-position="fixed">
 
-    <section id="page2" data-role="page">
-        <header data-role="header"><h1>jQuery Mobile</h1></header>
-        
-        <div data-role="content" class="content">
-            <p>Second page!</p>
-        </div>
-        <footer data-role="footer"r><h1>O'Reilly</h1></footer>
-    </section>
+			<h1>Nexus Mobile</h1><a href="#myPanel_index" data-icon="bars" data-iconpos="notext"></a>
+		</div>
+		
+			<ul data-inset="true" data-role="listview" data-theme="a" style="margin-top: 20px; margin-left: 2%; margin-right: 2%;">
+				<li data-role="list-divider">Energy Use</li>
+				<li><a href="energy_use.html">	
+				<div style="height: 100px; width:80%; margin: auto; background: transparent;">
+					<h3 style="text-align: center">Energy Use</h3>
+				</div>	
+				</a></li>
+			</ul>
+			<ul data-inset="true" data-role="listview" data-theme="a" style="margin-top: 20px; margin-left: 2%; margin-right: 2%;">
+				<li data-role="list-divider">History</li>
+				<li><a href="history.html">	
+				<div style="height: 100px; width:80%; margin:auto; background: transparent;">
+					<h3 style="text-align: center">Historical Energy Use Link </h3>
+				</div>	
+				</a></li>
+			</ul>
+			<ul data-inset="true" data-role="listview" data-theme="a" style="margin-top: 20px; margin-left: 2%; margin-right: 2%;">
+				<li data-role="list-divider">Smart Home</li>
+				<li><a href="smart_home.html">	
+				<div style="height: 100px; width:80%; margin: auto; background: transparent;">
+					<h3 style="text-align: center">Smart Home Link </h3>
+				</div>	
+				</a></li>
+			</ul>
+			<ul data-inset="true" data-role="listview" data-theme="a" style="margin-top: 20px; margin-left: 2%; margin-right: 2%;">
+				<li data-role="list-divider">Settings</li>
+				<li><a href="settings.html">	
+				<div style="height: 100px; width:80%; margin: auto; background: transparent;">
+					<h3 style="text-align: center">Settings Link </h3>
+				</div>	
+				</a></li>
+			</ul>
 
-    <section id="page3" data-role="page">
-        <header data-role="header"><h1>jQuery Mobile</h1></header>
-        
-        <div data-role="content" class="content">
-            <p>Third page!</p>
-        </div>
-        <footer data-role="footer"><h1>O'Reilly</h1></footer>
-    </section> 
-<script>
-	(function($) {
-    var methods = {
-        init : function(options) {
-            var settings = {
-                callback: function() {}
-            };
-        
-            if ( options ) {
-                $.extend( settings, options );
-                }
+		
+		<div data-role="panel" id="myPanel_index" data-display="overlay" class="myPanel">
+			<ul data-role="listview">
+				<li><a href="energy_use.html">Energy Use</a></li>
+			 	<li><a href="history.html">History</a></li>
+			 	<li><a href="smart_home.html">Smart Home</a></li>
+			 	<li><a href="settings.html">Settings</a></li>
+			 	<li><a href="register.html">Register</a></li>
+			 	<li><a href="log_out.html">log Out</a></li> 	
+			 </ul>
+		</div>
+	</div>
 
-            $(":jqmData(role='page')").each(function() {
-                $(this).bind("swiperight", function() {
-                    var nextPage = parseInt($(this).attr("id").split("page")[1]) - 1;
-                    if (nextPage === 0) 
-                        nextPage = 3;
-                    
-                    $.mobile.changePage("#page"+nextPage, {
-                    		transition: "slide",
-                            reverse: false
-                        });
-                    });                        
-
-                $(this).bind("swipeleft", function() {
-                    var nextPage = parseInt($(this).attr("id").split("page")[1]) +1;
-                    if (nextPage === 4) 
-                        nextPage = 1;
-                    
-                    $.mobile.changePage("#page"+nextPage, {
-                        transition: "slide",
-                        reverse: true
-                    });
-                });
-            });
-        }
-      };
-
-    $.fn.initApp = function(method) {
-        if ( methods[method] ) {
-            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } 
-        else if ( typeof method === 'object' || ! method ) {
-            return methods.init.apply( this, arguments );
-        } 
-        else {
-            $.error( 'Method ' + method + ' does not exist' );
-        }
-    };
-    })(jQuery);
-
-$(document).ready(function(){
-    $().initApp();
-});
-
-</script>
 </body>
 </html>

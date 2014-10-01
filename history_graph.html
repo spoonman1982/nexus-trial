@@ -1,0 +1,41 @@
+<div data-role="page" id="history_graph" data-theme="a" class="history-swipe" data-dom-cache="true" data-prev="history_budget">
+			<div data-role="header" data-position="inline">
+				<a href="#myPanel_9" data-icon="bars" data-iconpos="notext"></a>
+						<h1>History Graph</h1>
+				<a href="index.html" data-icon="home" data-iconpos="notext"></a>
+				</div>
+				<div data-role="content" data-theme="a">
+					<div data-role="controlgroup" data-type="horizontal" id="historyGraphBtn">
+					  <a href="#" class="ui-btn ui-corner-all" onclick="historyGaphUpdate('Daily')">Today</a>
+					  <a href="#" class="ui-btn ui-corner-all" onclick="historyGaphUpdate('Week')">Week</a>
+					  <a href="#" class="ui-btn ui-corner-all" onclick="historyGaphUpdate('Month')">Month</a>
+					  <a href="#" class="ui-btn ui-corner-all" onclick="historyGaphUpdate('Year')">Year</a>
+					</div>
+		
+					<br/>
+					<div style="width: 100%;">
+						<div id="today_history_prices" class="prices_chart" style="min-width: 300px"> </div>
+					</div>
+
+				</div>
+					<div data-role="footer" data-id="foo9" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="history.html" data-transition="slide" data-direction="reverse">History</a></li>
+						<li><a href="history_budget.html" data-transition="slide" data-direction="reverse">History Budget</a></li>
+						<li><a href="#" class="ui-btn-active  ui-state-persist">History Graph</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+			<div data-role="panel" id="myPanel_9" data-display="overlay">
+				<ul data-role="listview">
+				 	<li><a href="energy_use.html">Energy Use</a></li>
+				 	<li><a href="history.html">History</a></li>
+				 	<li><a href="smart_home.html">Smart Home</a></li>
+				 	<li><a href="settings.html">Settings</a></li>
+				 	<li><a href="register.html">Register</a></li>
+				 	<li><a href="log_out.html">log Out</a></li>
+				 </ul>
+			</div>
+		</div><!-- /end of page -->		
+

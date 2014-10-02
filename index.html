@@ -34,7 +34,7 @@
 			</ul>
 			<ul data-inset="true" data-role="listview" data-theme="a" style="margin-top: 20px; margin-left: 2%; margin-right: 2%;">
 				<li data-role="list-divider">History</li>
-				<li><a href="history.html">	
+				<li><a href="#history">	
 				<div style="height: 100px; width:80%; margin:auto; background: transparent;">
 					<h3 style="text-align: center">Historical Energy Use Link </h3>
 				</div>	
@@ -69,6 +69,137 @@
 			 </ul>
 		</div>
 	</div>
+	<div data-role="page" id="history" data-theme="a" class="history-swipe" data-dom-cache="true" data-next="history_budget">
+		<div data-role="header" data-position="inline">
+		<a href="#myPanel_history" data-icon="bars" data-iconpos="notext"></a>
+				<h1>History </h1>
+		<a href="index.html" data-icon="home" data-iconpos="notext"></a>
+		</div>
+		<div data-role="content" data-theme="a">
+			
+		<div style="width: 100%;">
+        	<img alt="" src="themes/images/mock_nexus/history1.png" style="width: 100%;">
+    	</div>
+
+		</div>
+				<div data-role="footer" data-id="foo8" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" class="ui-btn-active  ui-state-persist">History</a></li>
+					<li><a href="history_budget.html" data-transition="slide" >History Budget</a></li>
+					<li><a href="history_graph.html" data-transition="slide">History Graph</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+		<div data-role="panel"  id="myPanel_history" data-display="overlay" >
+			<ul data-role="listview">
+			 	<li><a href="energy_use.html">Energy Use</a></li>
+			 	<li><a href="history.html">History</a></li>
+			 	<li><a href="smart_home.html">Smart Home</a></li>
+			 	<li><a href="#">Settings</a></li>
+			 	<li><a href="register.html">Register</a></li>
+			 	<li><a href="log_out.html">Log Out</a></li>
+			 </ul>
+		</div>
+	<script>
+		$(document).on('swipeleft','#history', function() {
+			
+			  $.mobile.changePage("#history_budget");
+			 
+		});
+	</script>
+</div><!-- /end of page -->	
+<div data-role="page" id="history_budget" data-theme="a" class="history-swipe" data-dom-cache="true" data-prev="history" data-next="history_graph">
+		<div data-role="header" data-position="inline">
+		<a href="#myPanel_8" data-icon="bars" data-iconpos="notext"></a>
+				<h1>History Budget</h1>
+		<a href="index.html" data-icon="home" data-iconpos="notext"></a>
+		</div>
+		<div data-role="content" data-theme="a">
+			
+		<div style="width: 100%;">
+        	<img alt="" src="themes/images/mock_nexus/budget1.png" style="width: 100%;">
+    	</div>
+
+		</div>
+				<div data-role="footer" data-id="foo8" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="history.html" data-transition="slide" data-direction="reverse">History</a></li>
+					<li><a href="#" class="ui-btn-active  ui-state-persist">History Budget</a></li>
+					<li><a href="history_graph.html" data-transition="slide">History Graph</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+		<div data-role="panel"  id="myPanel_8" data-display="overlay" >
+			<ul data-role="listview">
+			 	<li><a href="energy_use.html">Energy Use</a></li>
+			 	<li><a href="history.html">History</a></li>
+			 	<li><a href="smart_home.html">Smart Home</a></li>
+			 	<li><a href="#">Settings</a></li>
+			 	<li><a href="register.html">Register</a></li>
+			 	<li><a href="log_out.html">Log Out</a></li>
+			 </ul>
+		</div>
+	<script>
+		$(document).on('swiperight swipeleft','#history_budget', function(event) {
+			 if (event.type == 'swiperight') {
+			  $.mobile.changePage("#history");
+			 }
+			 if (event.type == 'swipeleft') {
+			  $.mobile.changePage("#history_graph");
+			 }
+		});
+	</script>
+</div><!-- /end of page -->
+<div data-role="page" id="history_graph" data-theme="a" class="history-swipe" data-dom-cache="true" data-prev="history_budget">
+			<div data-role="header" data-position="inline">
+				<a href="#myPanel_9" data-icon="bars" data-iconpos="notext"></a>
+						<h1>History Graph</h1>
+				<a href="index.html" data-icon="home" data-iconpos="notext"></a>
+				</div>
+				<div data-role="content" data-theme="a">
+					<div data-role="controlgroup" data-type="horizontal" id="historyGraphBtn">
+					  <a href="#" class="ui-btn ui-corner-all" onclick="historyGaphUpdate('Daily')">Today</a>
+					  <a href="#" class="ui-btn ui-corner-all" onclick="historyGaphUpdate('Week')">Week</a>
+					  <a href="#" class="ui-btn ui-corner-all" onclick="historyGaphUpdate('Month')">Month</a>
+					  <a href="#" class="ui-btn ui-corner-all" onclick="historyGaphUpdate('Year')">Year</a>
+					</div>
+		
+					<br/>
+					<div style="width: 100%;">
+						<div id="today_history_prices" class="prices_chart" style="min-width: 300px"> </div>
+					</div>
+
+				</div>
+					<div data-role="footer" data-id="foo9" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="history.html" data-transition="slide" data-direction="reverse">History</a></li>
+						<li><a href="history_budget.html" data-transition="slide" data-direction="reverse">History Budget</a></li>
+						<li><a href="#" class="ui-btn-active  ui-state-persist">History Graph</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+			<div data-role="panel" id="myPanel_9" data-display="overlay">
+				<ul data-role="listview">
+				 	<li><a href="energy_use.html">Energy Use</a></li>
+				 	<li><a href="history.html">History</a></li>
+				 	<li><a href="smart_home.html">Smart Home</a></li>
+				 	<li><a href="settings.html">Settings</a></li>
+				 	<li><a href="register.html">Register</a></li>
+				 	<li><a href="log_out.html">log Out</a></li>
+				 </ul>
+			</div>
+	<script>
+		$(document).on('swiperight','#history_graph', function() {
+
+			  $.mobile.changePage("#history_budget");
+			 
+		});
+	</script>
+</div><!-- /end of page -->	
+
 
 </body>
 </html>

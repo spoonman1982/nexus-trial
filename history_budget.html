@@ -30,5 +30,16 @@
 			 	<li><a href="log_out.html">Log Out</a></li>
 			 </ul>
 		</div>
-</div><!-- /end of page -->		
+	<script>
+		$(document).on('swiperight swipeleft','#history_budget', function(event) {
+			 if (event.type == 'swiperight') {
+			  $.mobile.changePage("history.html");
+			 }
+			 if (event.type == 'swipeleft') {
+			  $.mobile.changePage("history_graph.html");
+			 }
+		});
+	</script>
+</div><!-- /end of page -->	
+	
 

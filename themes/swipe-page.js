@@ -12,6 +12,7 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
 		// Navigate to next page on swipe left
 		$( document ).on( "swipeleft", page, function() {
 			$.mobile.changePage( next + ".html", { transition: "slide" });
+			 console.log("swipe left!!!");
 		});
 		// Navigate to next page when the "next" button is clicked
 		$( ".control .next", page ).on( "click", function() {
@@ -26,6 +27,7 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
 	if ( prev ) {
 		$( document ).on( "swiperight", page, function() {
 			$.mobile.changePage( prev + ".html", { transition: "slide", reverse: true } );
+			console.log("swipe left!!!");
 		});
 		$( ".control .prev", page ).on( "click", function() {
 			$.mobile.changePage( prev + ".html", { transition: "slide", reverse: true } );

@@ -19,6 +19,9 @@ $( document ).on( "pageinit", "[data-role='page'].history-swipe", function() {
 
 	// The same for the previous page (we set data-dom-cache="true" so there is no need to prefetch)
 	if ( prev ) {
+		
+		$.mobile.loadPage( prev + ".html" );
+		
 		$( document ).on( "swiperight", page, function() {
 			$.mobile.changePage( prev + ".html", { transition: "slide", reverse: true } );
 		});

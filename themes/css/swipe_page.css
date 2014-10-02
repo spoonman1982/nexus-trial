@@ -1,10 +1,10 @@
 /* Set the background image sources */
-#newyork { background-image: url(../../themes/images/newyork.jpg); }
-#buenosaires { background-image: url(../../themes/images/buenosaires.jpg); }
-#paris { background-image: url(../../themes/images/paris.jpg); }
-#capetown { background-image: url(../../themes/images/capetown.jpg); }
-#seoul { background-image: url../../themes/images/seoul.jpg); }
-#sydney { background-image: url(../../themes/images/sydney.jpg); }
+#newyork { background-image: url(../images/newyork.jpg); }
+#buenosaires { background-image: url(../images/buenosaires.jpg); }
+#paris { background-image: url(../images/paris.jpg); }
+#capetown { background-image: url(../images/capetown.jpg); }
+#seoul { background-image: url(../images/seoul.jpg); }
+#sydney { background-image: url(../images/sydney.jpg); }
 /* Background settings */
 .demo-page {
 	background-size: cover;
